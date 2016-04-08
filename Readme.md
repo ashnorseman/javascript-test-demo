@@ -132,7 +132,7 @@ npm install -D babel-core babel-preset-es2015 babel-loader
 module: {
     loaders: [
         {
-            test: /\.js?$/,
+            test: /\.js$/,
             loaders: ['babel']
         }
     ]
