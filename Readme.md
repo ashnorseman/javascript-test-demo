@@ -1,6 +1,6 @@
 # Javascript Test starter
 
----
+by: Ash
 
 ## 前端单元测试包括哪些内容？ ##
 
@@ -8,7 +8,7 @@
 
 不涉及浏览器环境，和语言特性无甚关联，测试方式与后台单元测试相同
 
-```
+```javascript
 /**
  1. Add certain dates to a date
  2. @param {number|Date} timestamp - original date
@@ -29,7 +29,7 @@ function addDate(timestamp, dates) {
 涉及 DOM 节点，必须在浏览器环境下才能测试。
 基本思路：往 DOM 里 append 生成的元素，各种运用 DOM api 测试，然后删除元素。
 
-```
+```javascript
 /**
  * Test if an element is the child of another
  * @param {string|HTMLElement|jQuery} parent
@@ -53,7 +53,7 @@ function isChildOf(parent) {
 
 一般需要与框架搭配的特定测试工具结合测试
 
-```
+```javascript
 // React
 export default function Button({
   children,
@@ -120,7 +120,7 @@ npm install -D babel-core babel-preset-es2015 babel-loader
 
 搞定 Babel 的配置 `.babelrc`
 
-```
+```javascript
 {
     "presets": ["es2015"]
 }
@@ -128,7 +128,7 @@ npm install -D babel-core babel-preset-es2015 babel-loader
 
 并在 Webpack 里添加相应的 loader
 
-```
+```javascript
 module: {
     loaders: [
         {
@@ -156,14 +156,14 @@ module: {
 
 肩负重任的 `index.js`：注入 `/src` 目录下所有 `-test.js` 结尾的文件
 
-```
+```javascript
 const context = require.context('../src', true, /-test\.js$/);
 context.keys().forEach(context);
 ```
 
 修改 `karma.conf.js`，使 Karma 启动时加载 `index.js`
 
-```
+```javascript
 files: [
     'test/index.js'
 ]
